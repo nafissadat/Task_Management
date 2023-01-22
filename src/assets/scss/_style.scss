@@ -1,0 +1,28 @@
+$primary-color: #0f2842;
+$secondary-color: #406892;
+$bg-light-color: #6d72a7a1;
+$txt-light-color: #9398A7;
+$txt-dark-color: #292D32;
+$bg-purple: #F4F2FE;
+$border-radius: 8px;
+$padding: 15px;
+$margin: 20px 10px;
+
+.box-style {
+    padding: $padding;
+    border-radius: $border-radius;
+    background-color: $bg-light-color;
+    margin: $margin;
+}
+.primary-btn {
+    background-color: $primary-color!important;
+    color: #fff;
+    margin: $margin;
+    min-width: 120px!important;
+}
+.secondary-btn {
+    background-color: $secondary-color!important;
+    color: #fff;
+    margin: $margin;
+    min-width: 120px!important;
+}
