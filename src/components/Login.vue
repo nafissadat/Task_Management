@@ -12,7 +12,7 @@
             label="First Name"
             prepend-icon="mdi-account"
             v-model="firstName"
-            :rules="nameRules"
+            :rules="name"
             required
           ></v-text-field>
           <v-text-field
@@ -28,7 +28,7 @@
             label="Email"
             prepend-icon="mdi-email"
             v-model="email"
-            :rules="email"
+            :rules="emailrules"
             required
           >
           </v-text-field>
@@ -110,7 +110,7 @@ export default {
         (v) => !!v || "Last Name is required",
         (v) => (v && v.length <= 10) || "Last must be less than 10 characters",
       ],
-      email: [
+      emailrules: [
         (v) => !!v || "E-mail is required",
         (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
       ],
