@@ -1,9 +1,9 @@
 <template>
-  <v-container>
-    <MenuBar/>
+  <div>
+    <v-container>
     <Login />
   </v-container>
-  
+  </div>
 </template>
 
 <script>

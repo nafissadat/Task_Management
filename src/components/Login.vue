@@ -1,6 +1,6 @@
 <template >
   <v-container>
-    <v-card class="text-center login-form">
+    <v-card justify="center" class="text-center login-form">
       <v-card-text>
         <div class="subheading">
           <template v-if="isLogIn">Log in to task management</template>
@@ -44,9 +44,11 @@
             label="Password"
             prepend-icon="mdi-lock"
             v-model="passWord"
-            type="password"
             :rules="password"
             required
+            :append-icon="showPassWord ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="showPassWord ? 'text' : 'password'"
+            @click:append="showPassWord = !showPassWord"
           >
           </v-text-field>
           <v-btn
@@ -84,9 +86,10 @@ export default {
     return {
       firstName: "",
       lastName: "",
-      userName: "",
+      userName: "mor_2314",
+      passWord: "83r5^_",
       email: "",
-      passWord: "",
+      showPassWord: false,
       isLogIn: true,
       isRegister: false,
 
@@ -135,7 +138,7 @@ export default {
         },
       })
         .then((data) => {
-          console.log(data, "data");
+          // this.$store.dispatch("SendLoginInfo");
         })
         .catch((error) => {
           console.log(error);
