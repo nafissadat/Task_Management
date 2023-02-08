@@ -51,6 +51,17 @@
             @click:append="showPassWord = !showPassWord"
           >
           </v-text-field>
+          <!-- <v-btn
+            class="primary-btn"
+            type="submit"
+          >
+            <v-icon left>mdi-login-variant</v-icon> Login
+          </v-btn>
+          <v-btn
+            class="secondary-btn"
+            type="button"
+            mode="flat"
+          > -->
           <v-btn
             v-if="isLogIn"
             class="primary-btn"
@@ -96,7 +107,7 @@ export default {
       password: [
         (v) => !!v || "Password is required",
         (v) =>
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(
+          /^(?=.*[a-z])(?=.*[0-9])(?=.*[!@_#\$%\^&\*])(?=.{6,})/.test(
             v
           ) ||
           "Min. 8 characters with at least one capital letter, a number and a special character.",
@@ -138,7 +149,7 @@ export default {
         },
       })
         .then((data) => {
-          // this.$store.dispatch("SendLoginInfo");
+          this.$store.dispatch("SendLoginInfo", data.data.token);
         })
         .catch((error) => {
           console.log(error);
@@ -176,6 +187,7 @@ export default {
           console.log(error);
         });
     },
+   
   },
 };
 </script>

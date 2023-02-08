@@ -6,17 +6,15 @@
       <v-btn v-for="item in menuList" :key="item.id" :to="item.link" text>
       {{ item.title }}</v-btn>
     </v-toolbar-items>
-    <v-btn icon>
-      <v-icon>mdi-heart</v-icon>
+    <v-btn icon @click="bookmarkFunc()">
+      <v-icon>mdi-bookmark-outline</v-icon>
     </v-btn>
     <v-btn icon>
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
-    <router-link to="/">
-      <v-btn icon>
+      <v-btn icon @click="logOutFunc()">
         <v-icon>mdi-logout-variant</v-icon>
       </v-btn>
-    </router-link>
     <v-menu class="hidden-md-and-up" offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-app-bar-nav-icon
@@ -42,9 +40,11 @@ export default {
   data() {
     return {
       menuList: [
-        { title: "All Tasks", id: "1", link: "/alltasks" },
+        { title: "All Tasks", id: "1", link: "/" },
         { title: "Done Tasks", id: "2", link: "/donetasks" },
         { title: "Remained Tasks", id: "3", link: "/remainedtasks" },
+        // { title: "Bookmarks", id: "4", link: "/bookmark" },
+
       ],
     };
   },
@@ -52,6 +52,14 @@ export default {
     menuItems() {
       return this.menu;
     },
+    logOutFunc(){
+      this.$store.commit('logOut')
+    },
+    bookmarkFunc(){
+      this.$router.push({
+        name: "BookmarkTasks"
+      })
+    }
   },
 };
 </script>

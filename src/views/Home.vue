@@ -21,7 +21,7 @@ import SingleTask from "../components/SingleTask.vue";
 import { mapGetters } from "vuex";
 
 export default {
-  name: "TaskList",
+  name: "Home",
 
   methods: {
     showAllTasks() {
